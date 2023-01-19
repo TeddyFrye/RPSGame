@@ -1,4 +1,5 @@
 const gameChoice = ["Rock", "Paper", "Scissors"];
+
 function getComputerChoice(gameChoice){
     let compChoice = gameChoice[Math.floor(Math.random()*gameChoice.length)];
     return compChoice;
@@ -29,11 +30,12 @@ function getPlayerChoice(){
         return playerChoice;}
     
 }
-
 function playRound(playerChoice, compChoice){
-    if (playerChoice == "Rock" && compChoice == "Scissors") ||
+    getPlayerChoice();
+    getComputerChoice();
+    if ((playerChoice == "Rock" && compChoice == "Scissors") ||
         (playerChoice == "Paper" && compChoice == "Rock")||
-        (playerChoice == "Scissors" && compChoice == "Paper")
+        (playerChoice == "Scissors" && compChoice == "Paper"))
         {return "You Win";}
     else if (playerChoice == compChoice)
         {return "It's a tie, try again!"}
