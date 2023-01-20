@@ -45,5 +45,18 @@ function run(){
         return playRound(playerChoice, compChoice)
       }
 
-console.log(run());
+function game(){
+    for (let i = 0; i < 5; i++)  
+      let playerScore = 0
+      let compScore = 0
+      let result = run();
+      if (result = "You Win"){playerScore++;}
+      else if (result = "You Lose"){compScore++}
+      else {return "It's a tie"}
+      return playerScore
+}
+
+
+
+console.log(game());
 
