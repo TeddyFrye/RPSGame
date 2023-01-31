@@ -45,18 +45,24 @@ function run(){
         return playRound(playerChoice, compChoice)
       }
 
-function game(){
-    for (let i = 0; i < 5; i++)  
+function game(){ 
       let playerScore = 0
       let compScore = 0
-      let result = run();
-      if (result = "You Win"){playerScore++;}
-      else if (result = "You Lose"){compScore++}
-      else {return "It's a tie"}
-      return playerScore
-}
+
+    for (let i = 0; i < 5; i++){
+        let result = run();
+        console.log(result);
+        if (result == "You Win"){playerScore++;}
+        else if (result == "You Lose"){compScore++;}
+        else {};}  
+   if (playerScore > compScore) {return "You win the whole game!"};
+        else if (compScore > playerScore){return "The computer is victorious."};
+        else {return "Nobody wins, go home."}
+    }
 
 
 
-console.log(game());
 
+
+    
+console.log(game())
