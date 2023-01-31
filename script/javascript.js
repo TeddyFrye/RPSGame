@@ -46,23 +46,24 @@ function run(){
       }
 
 function game(){ 
-      let playerScore = 0
-      let compScore = 0
-
+    let playerScore = 0
+    let compScore = 0
     for (let i = 0; i < 5; i++){
         let result = run();
         console.log(result);
         if (result == "You Win"){playerScore++;}
         else if (result == "You Lose"){compScore++;}
-        else {};}  
-   if (playerScore > compScore) {return "You win the whole game!"};
-        else if (compScore > playerScore){return "The computer is victorious."};
-        else {return "Nobody wins, go home."}
+        else {};
     }
+   if (playerScore > compScore) {return "You win the whole game!"}
+    else if (compScore > playerScore){return "The computer is victorious."}
+    else {return "Nobody wins, go home."}
 
+    /*if (playerScore == 5){return "You win the game!";} 
+    else if (compScore == 5) {return "The computer wins the game.";}
+    else {return "Let's play another round";} */
+}
+/*HEY WHOA LET'S NOT GET CRAZY HERE*/
 
+console.log(game());
 
-
-
-    
-console.log(game())
