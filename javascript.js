@@ -9,11 +9,53 @@ function playRound(playerChoice, compChoice) {
     } else if (player === "paper" && computer === "rock") {
       return "Surprisingly, Paper does beat Rock. You Win the Round";
     } else if (player !== "rock" && player !== "scissors" && player !== "paper") {
-      return "Improper input";
-    } else {
-      return "You lose! Computer wins.";
+      return "Improper input";}
+      else if (player === computer){
+        return "Even match! No points."
+      }
+    else {
+      return "You lose!";
     }
   }
   
-  console.log(playRound("rock", "paper")); 
+  function fullGame() {
+    let playerScore = 0;
+    let compScore = 0;
+  
+    for (let i = 0; i < 5; i++) {
+      let playerChoice = prompt("What's your move?");
+      let compChoice = computerPlay();
+  
+      let result = playRound(playerChoice, compChoice);
+      if ((result === "You lose!") || (result === "Improper input")){
+        compScore = compScore + 1;
+      } 
+      else if (result === "Even match! No points."){}
+      else {
+        playerScore = playerScore + 1;
+      }
+  
+      console.log(result);
+      console.log("Your score is " + playerScore + " and the computer score is " + compScore);
+    }
+    let finalResult;
+    if (playerScore < compScore){
+      finalResult = "You've lost the whole game!";
+    } else if (playerScore === compScore){
+      finalResult = "It's a tie!";
+    } else {
+      finalResult = "You've won the whole game, Conglaturations!";
+    }
+  
+    console.log(finalResult); // Print final result
+  }
+
+  
+  function computerPlay() {
+    const choices = ["rock", "paper", "scissors"];
+    const randomIndex = Math.floor(Math.random() * choices.length);
+    return choices[randomIndex];
+  }
+  
+  console.log(fullGame());
   
