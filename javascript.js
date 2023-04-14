@@ -1,3 +1,21 @@
+//Styling
+const container = document.querySelector('#container');
+
+const content = document.createElement('div');
+content.classList.add('content');
+content.textContent = 'Filler text!';
+content.style.cssText = ("color: white; background: darkgrey;")
+
+container.appendChild(content);
+
+//Adding buttons
+const startBtn = document.querySelector('#btn');
+startBtn.addEventListener('click', fullGame);
+
+
+
+
+//RPS Game Functions
 function playRound(playerChoice, compChoice) {
     const player = playerChoice.toLowerCase();
     const computer = compChoice.toLowerCase();
@@ -57,5 +75,4 @@ function playRound(playerChoice, compChoice) {
     return choices[randomIndex];
   }
   
-  console.log(fullGame());
   
