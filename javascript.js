@@ -1,4 +1,4 @@
-//Styling
+//Scoreboard variables
 const container = document.querySelector('#container');
 const lineBreak = document.createElement('br');
 const scoreBoard = document.createElement('div');
@@ -17,6 +17,12 @@ gameStatus.classList.add('gameStatus');
 gameStatus.textContent = "Let's play first to 5!"
 gameStatus.style.cssText = ('font-size: 30px');
 
+const roundResults = document.createElement('span');
+roundResults.classList.add('gameStatus');
+roundResults.textContent = "Here are the round results!"
+roundResults.style.cssText = ('font-size: 30px');
+
+//Scoreboard itself
 scoreBoard.appendChild(playerScore);
 scoreBoard.appendChild(document.createTextNode(' - '));
 scoreBoard.appendChild(computerScore);
@@ -27,6 +33,9 @@ scoreBoard.style.padding = '20px';
 scoreBoard.appendChild(lineBreak);
 
 scoreBoard.appendChild(gameStatus);
+scoreBoard.appendChild(lineBreak);
+scoreBoard.appendChild(roundResults);
+
 container.appendChild(scoreBoard);
 
 /*Adding buttons
