@@ -29,10 +29,10 @@ scoreBoard.appendChild(lineBreak);
 scoreBoard.appendChild(gameStatus);
 container.appendChild(scoreBoard);
 
-//Adding buttons
+/*Adding buttons
 const startBtn = document.querySelector('#btn');
 startBtn.addEventListener('click', fullGame);
-
+*/
 const rockBtn = document.querySelector('#rkbtn');
 rockBtn.addEventListener('click', function() {
     playRound("rock",computerPlay());
@@ -70,49 +70,58 @@ let computerScoreValue = 0;
 function playerWins(){
     playerScoreValue++;
     playerScore.textContent = playerScoreValue;
+    computerScore.textContent = computerScoreValue;
     if (playerScoreValue === 5){
+            computerScoreValue = 0;
             playerScoreValue = 0
-            gameStatus.textContent = "You win the game!"
+            gameStatus.textContent = "You win the whole game!"
     }
+    else(gameStatus.textContent = "You win this round!")
 }
 function computerWins(){
     computerScoreValue++;
+    playerScore.textContent = playerScoreValue;
     computerScore.textContent = computerScoreValue;
     if (computerScoreValue === 5){
-        computerScoreValue = 0
-        gameStatus.textContent = "You've lost the game!"
+        computerScoreValue = 0;
+        playerScoreValue = 0;
+         gameStatus.textContent = "You've lost the game!"
 }
+    else{gameStatus.textContent = "You lose this round"}
 }
-function tiedRound(){
-    alert("That's a tie!")
-}
+
 //RPS Game Functions
 function playRound(playerChoice, compChoice) {
     const player = playerChoice;
     const computer = compChoice;
     //Player Wins
-    if (player === "rock" && computer === "scissors") {
+   if (player === "rock" && computer === "scissors") {
         playerWins();
+        roundResults.textContent = "Your rock beats their scissors!";
     } else if (player === "scissors" && computer === "paper") {
         playerWins();
+        roundResults.textContent = "Your scissors beats their paper!";
     } else if (player === "paper" && computer === "rock") {
         playerWins();
+        roundResults.textContent = "Your paper beats their rock";
      } 
     //Player Loses
     else if (player === "rock" && computer === "paper") {
         computerWins();
+        roundResults.textContent = "Their paper beats your rock.";
     } else if (player === "paper" && computer === "scissors") {
         computerWins();
+        roundResults.textContent = "Their scissors beats your paper.";
     } else if (player === "scissors" && computer === "rock") {
         computerWins();
+        roundResults.textContent = "Their rock beats your scissors.";
     } 
-    else if (player !== "rock" && player !== "scissors" && player !== "paper") {
-      return "Improper input";}
     //Ties
     else if (player === computer){
-        tiedRound();
+        roundResults.textContent = "Same picks!"
+        gameStatus.textContent = "That's a tie, no points!"
   }}
-  
+  /*
   function fullGame() {
     let playerScore = 0;
     let compScore = 0;
@@ -144,7 +153,7 @@ function playRound(playerChoice, compChoice) {
   
     console.log(finalResult); // Print final result
   }
-
+*/
   
   function computerPlay() {
     const choices = ["rock", "paper", "scissors"];
