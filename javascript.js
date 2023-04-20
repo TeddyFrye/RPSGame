@@ -14,20 +14,20 @@ startBtn.addEventListener('click', fullGame);
 
 const rockBtn = document.querySelector('#rkbtn');
 rockBtn.addEventListener('click', function() {
-    playRound("Rock","Scissors");
+    playRound("Rock",computerPlay());
 });
 
 
 //RPS Game Functions
 function playRound(playerChoice, compChoice) {
     const player = playerChoice.toLowerCase();
-    const computer = compChoice.toLowerCase();
+    const computer = compChoice;
   
     if (player === "rock" && computer === "scissors") {
       console.log( "Rock beats Scissors, You Win the Round");
     } else if (player === "scissors" && computer === "paper") {
       return "Scissors beats Paper, You Win the Round";
-    } else if (player === "paper" && computer === "rock") {
+    } else if (player === "paperxs" && computer === "rock") {
       return "Surprisingly, Paper does beat Rock. You Win the Round";
     } else if (player !== "rock" && player !== "scissors" && player !== "paper") {
       return "Improper input";}
@@ -35,7 +35,7 @@ function playRound(playerChoice, compChoice) {
         return "Even match! No points."
       }
     else {
-      return "You lose!";
+      console.log("You Lose");
     }
 
   }
