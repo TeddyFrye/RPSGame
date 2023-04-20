@@ -3,7 +3,7 @@ const container = document.querySelector('#container');
 
 const content = document.createElement('div');
 content.classList.add('content');
-content.textContent = 'Filler text!';
+content.textContent ='';
 content.style.cssText = ("color: white; background: darkgrey;")
 
 container.appendChild(content);
@@ -12,7 +12,10 @@ container.appendChild(content);
 const startBtn = document.querySelector('#btn');
 startBtn.addEventListener('click', fullGame);
 
-
+const rockBtn = document.querySelector('#rkbtn');
+rockBtn.addEventListener('click', function() {
+    playRound("Rock","Scissors");
+});
 
 
 //RPS Game Functions
@@ -21,7 +24,7 @@ function playRound(playerChoice, compChoice) {
     const computer = compChoice.toLowerCase();
   
     if (player === "rock" && computer === "scissors") {
-      return "Rock beats Scissors, You Win the Round";
+      console.log( "Rock beats Scissors, You Win the Round");
     } else if (player === "scissors" && computer === "paper") {
       return "Scissors beats Paper, You Win the Round";
     } else if (player === "paper" && computer === "rock") {
@@ -34,6 +37,7 @@ function playRound(playerChoice, compChoice) {
     else {
       return "You lose!";
     }
+
   }
   
   function fullGame() {
