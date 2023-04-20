@@ -30,7 +30,6 @@ scoreBoard.appendChild(gameStatus);
 scoreBoard.style.backgroundImage = 'url(./img/scoreboard1.jpeg)';
 scoreBoard.style.padding = '20px';
 
-scoreBoard.appendChild(lineBreak);
 
 scoreBoard.appendChild(gameStatus);
 scoreBoard.appendChild(lineBreak);
