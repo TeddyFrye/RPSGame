@@ -45,10 +45,18 @@ let computerScoreValue = 0;
 function playerWins(){
     playerScoreValue++;
     playerScore.textContent = playerScoreValue;
+    if (playerScoreValue === 5){
+            playerScoreValue = 0
+            alert("You win the game!")
+    }
 }
 function computerWins(){
     computerScoreValue++;
     computerScore.textContent = computerScoreValue;
+    if (computerScoreValue === 5){
+        computerScoreValue = 0
+        alert("You've lost the game!")
+}
 }
 function tiedRound(){
     alert("That's a tie!")

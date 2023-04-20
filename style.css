@@ -6,10 +6,37 @@ html, body {
     margin: 0;
     padding: 0;
   }
-  
+
 html {
     background-image: url("./img/stadium2.jpeg");
     background-repeat: no-repeat;
     background-size:cover;
   }
   
+#rkbtn{
+    background-image:url("./img/rock1.png");
+    background-size:cover;
+    font-size: 50px;
+    width: 300px;
+    height: 220px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#pprbtn{
+    background-image:url("./img/paper1.png");
+    background-size:cover;
+    font-size: 50px;
+    width: 300px;
+    height: 220px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#srsbtn{
+    background-image:url("./img/scissors1.webp");
+    background-color: grey;
+    background-size:contain;
+    font-size: 50px;
+    width: 300px;
+    height: 220px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
