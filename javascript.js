@@ -39,6 +39,25 @@ const scissorsBtn = document.querySelector('#srsbtn');
 scissorsBtn.addEventListener('click', function() {
     playRound("scissors",computerPlay());
 });
+
+//Hovering over buttons
+rockBtn.addEventListener('mouseover', function() {
+    rockBtn.style.backgroundColor = 'lightgray';
+});
+rockBtn.addEventListener('mouseout', function() {
+    rockBtn.style.backgroundColor = 'gray';
+});
+paperBtn.addEventListener('mouseover', function() {
+    paperBtn.style.backgroundColor = 'lightgray';
+});
+paperBtn.addEventListener('mouseout', function() {
+    paperBtn.style.backgroundColor = 'gray';
+});scissorsBtn.addEventListener('mouseover', function() {
+    scissorsBtn.style.backgroundColor = 'lightgray';
+});
+scissorsBtn.addEventListener('mouseout', function() {
+    scissorsBtn.style.backgroundColor = 'gray';
+});
 // Update the scores whenever the game results change
 let playerScoreValue=0;
 let computerScoreValue = 0;
