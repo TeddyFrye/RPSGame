@@ -1,12 +1,27 @@
 //Styling
 const container = document.querySelector('#container');
 
-const content = document.createElement('div');
-content.classList.add('content');
-content.textContent ='';
-content.style.cssText = ("color: white; background: darkgrey;")
+const scoreBoard = document.createElement('div');
+scoreBoard.classList.add('scoreBoard');
 
-container.appendChild(content);
+const playerScore = document.createElement('span');
+playerScore.classList.add('playerScore');
+playerScore.textContent = '0';
+
+const computerScore = document.createElement('span');
+computerScore.classList.add('computerScore');
+computerScore.textContent = '0';
+
+scoreBoard.appendChild(playerScore);
+scoreBoard.appendChild(document.createTextNode(' - '));
+scoreBoard.appendChild(computerScore);
+
+scoreBoard.style.cssText = 'color: darkred; font-size: 30px;';
+//scoreBoard.style.backgroundSize = 'cover';
+scoreBoard.style.backgroundImage = 'url(./img/scoreboard1.jpeg)';
+scoreBoard.style.padding = '10px';
+
+container.appendChild(scoreBoard);
 
 //Adding buttons
 const startBtn = document.querySelector('#btn');
@@ -24,36 +39,46 @@ const scissorsBtn = document.querySelector('#srsbtn');
 scissorsBtn.addEventListener('click', function() {
     playRound("scissors",computerPlay());
 });
-
-
+// Update the scores whenever the game results change
+let playerScoreValue=0;
+let computerScoreValue = 0;
+function playerWins(){
+    playerScoreValue++;
+    playerScore.textContent = playerScoreValue;
+}
+function computerWins(){
+    computerScoreValue++;
+    computerScore.textContent = computerScoreValue;
+}
+function tiedRound(){
+    alert("That's a tie!")
+}
 //RPS Game Functions
 function playRound(playerChoice, compChoice) {
     const player = playerChoice;
     const computer = compChoice;
-  
+    //Player Wins
     if (player === "rock" && computer === "scissors") {
-      console.log( "Rock beats Scissors, You Win the Round");
+        playerWins();
     } else if (player === "scissors" && computer === "paper") {
-        console.log("Scissors beats Paper, You Win the Round");
+        playerWins();
     } else if (player === "paper" && computer === "rock") {
-      console.log("Surprisingly, Paper does beat Rock. You Win the Round");
-    } else if (player === "rock" && computer === "paper") {
-        console.log("They chose paper, you lose");
+        playerWins();
+     } 
+    //Player Loses
+    else if (player === "rock" && computer === "paper") {
+        computerWins();
     } else if (player === "paper" && computer === "scissors") {
-        console.log("They chose scissors, you lose.");
+        computerWins();
     } else if (player === "scissors" && computer === "rock") {
-        console.log("They chose rock, you lose.");
+        computerWins();
     } 
     else if (player !== "rock" && player !== "scissors" && player !== "paper") {
       return "Improper input";}
+    //Ties
     else if (player === computer){
-        return "Even match! No points."
-      }
-    else {
-      console.log("You Lose");
-    }
-
-  }
+        tiedRound();
+  }}
   
   function fullGame() {
     let playerScore = 0;
