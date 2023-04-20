@@ -1,6 +1,6 @@
 //Styling
 const container = document.querySelector('#container');
-
+const lineBreak = document.createElement('br');
 const scoreBoard = document.createElement('div');
 scoreBoard.classList.add('scoreBoard');
 
@@ -12,15 +12,21 @@ const computerScore = document.createElement('span');
 computerScore.classList.add('computerScore');
 computerScore.textContent = '0';
 
+const gameStatus = document.createElement('span');
+gameStatus.classList.add('gameStatus');
+gameStatus.textContent = "Let's play first to 5!"
+gameStatus.style.cssText = ('font-size: 30px');
+
 scoreBoard.appendChild(playerScore);
 scoreBoard.appendChild(document.createTextNode(' - '));
 scoreBoard.appendChild(computerScore);
-
-scoreBoard.style.cssText = 'color: darkred; font-size: 30px;';
-//scoreBoard.style.backgroundSize = 'cover';
+scoreBoard.appendChild(gameStatus);
 scoreBoard.style.backgroundImage = 'url(./img/scoreboard1.jpeg)';
-scoreBoard.style.padding = '10px';
+scoreBoard.style.padding = '20px';
 
+scoreBoard.appendChild(lineBreak);
+
+scoreBoard.appendChild(gameStatus);
 container.appendChild(scoreBoard);
 
 //Adding buttons
@@ -66,7 +72,7 @@ function playerWins(){
     playerScore.textContent = playerScoreValue;
     if (playerScoreValue === 5){
             playerScoreValue = 0
-            alert("You win the game!")
+            gameStatus.textContent = "You win the game!"
     }
 }
 function computerWins(){
@@ -74,7 +80,7 @@ function computerWins(){
     computerScore.textContent = computerScoreValue;
     if (computerScoreValue === 5){
         computerScoreValue = 0
-        alert("You've lost the game!")
+        gameStatus.textContent = "You've lost the game!"
 }
 }
 function tiedRound(){
